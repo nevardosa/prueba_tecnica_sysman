@@ -1,0 +1,12 @@
+{
+    "/libro/*": {
+      "target": "http://localhost:8105",
+      "secure": false,
+      "logLevel": "debug"
+    },
+    "/autores/*": {
+      "target": "http://localhost:8105",
+      "secure": false,
+      "logLevel": "debug"
+    }    
+}

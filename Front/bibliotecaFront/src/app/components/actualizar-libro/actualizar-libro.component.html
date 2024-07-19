@@ -1,0 +1,64 @@
+<section>
+    <div class="titulo">Actualizar libro </div>
+    <div class="container">
+        <form autocomplete="off" [formGroup]="formularioCrear" (ngSubmit)="actualizarLibro()">
+            <div class="form-group row marg-input ">
+                <label class="col-2 col-form-label">Título</label>
+                <div class="col-8">
+                    <input class="form-control" type="text" formControlName="titulo"
+                    [class.is-invalid]="tituloNoValido" value="hdgfhd">
+                    <small *ngIf="tituloNoValido" class="text-danger">
+                      Ingrese el titulo
+                    </small>
+                </div>
+            </div>
+            <div class="form-group row marg-input">
+                <label class="col-2 col-form-label">Descripción</label>
+                <div class="col-8">
+                    <input class="form-control" type="text" formControlName="descripcion"
+                    [class.is-invalid]="descripcionNoValido">
+                    <small *ngIf="descripcionNoValido" class="text-danger">
+                      Ingrese la descripcion
+                    </small>                    
+                </div>
+            </div>            
+            <div class="form-group row marg-input">
+                <label class="col-2 col-form-label">Fecha de publicacion</label>
+                <div class="col-8">
+                    <input class="form-control" type="text" formControlName="fechaPublicacion" placeholder="2015-08-25"
+                    [class.is-invalid]="fechaPublicacionNoValido">
+                    <small *ngIf="fechaPublicacionNoValido" class="text-danger">
+                      Ingrese la fecha de publicacion
+                    </small>                   
+                </div>
+            </div>  
+            <div class="form-group row marg-input">
+                <label class="col-2 col-form-label">Autor</label>
+                <div class="col-8">
+                    <td><select name="miselect" class="form-select" formControlName="idAutor"
+                        [class.is-invalid]="autorNoValido">
+                        <option [value]="item.id" *ngFor="let item of listaAutores[0]; let i = index">{{item.nombre}} {{item.apellido}}</option>
+                        </select>
+                        <small *ngIf="autorNoValido" class="text-danger">
+                            Seleccione un autor
+                          </small> 
+                      </td>
+                </div>
+            </div>  
+            <div class="btns-crear-lib">
+                <div class="paddin-form-bus">
+                    <strong></strong>
+                    <button type="submit" class="btn btn-danger btn-tam">
+                        Guardar
+                    </button>
+                </div>
+                <div class="paddin-form-bus">
+                    <strong></strong>
+                    <button type="button" class="btn btn-danger btn-tam" (click)="regresar()">
+                        Regresar
+                    </button>
+                </div> 
+            </div>                                  
+        </form>
+    </div>
+</section>
